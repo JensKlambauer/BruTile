@@ -74,6 +74,9 @@ namespace BruTile.Wms
 
         public override void WriteXml(XmlWriter writer)
         {
+            //writer.WriteAttributeString("xlink", "http://www.w3.org/1999/xlink");
+            writer.WriteAttributeString("xmlns", "xlink", string.Empty, WmsNamespaces.Xlink);
+            writer.WriteAttributeString("type", Type);
             writer.WriteElementString("Format", Format);
             writer.WriteStartElement("OnlineResource", Namespace);
             OnlineResource.WriteXml(writer);

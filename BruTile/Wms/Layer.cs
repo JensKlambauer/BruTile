@@ -72,6 +72,7 @@ namespace BruTile.Wms
             Opaque = false;
             NoSubsets = false;
             BoundingBox = new List<BoundingBox>();
+            MetadataURL = new List<MetadataURL>();
         }
 
         public Layer(XElement node, string ns)

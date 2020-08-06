@@ -16,13 +16,14 @@ namespace BruTile.Wms
 
         public LegendURL(XElement node, string nameSpace)
         {
-            var widthAttribute = node.Attribute(XName.Get("width")) 
-                ?? throw new System.Exception("Width node is null in xml");
-            Width = int.Parse(widthAttribute.Value, NumberFormatInfo.InvariantInfo);
+            // Problem with WMS QGis-Server
+            var widthAttribute = node.Attribute(XName.Get("width"));
+                //?? throw new System.Exception("Width node is null in xml");
+            Width = widthAttribute != null ? int.Parse(widthAttribute.Value, NumberFormatInfo.InvariantInfo) : 0;
 
-            var heightAttribute = node.Attribute(XName.Get("height")) 
-                ?? throw new System.Exception("Height node is null in xml");
-            Height = int.Parse(heightAttribute.Value, NumberFormatInfo.InvariantInfo);
+            var heightAttribute = node.Attribute(XName.Get("height"));
+                //?? throw new System.Exception("Height node is null in xml");
+            Height = heightAttribute != null ? int.Parse(heightAttribute.Value, NumberFormatInfo.InvariantInfo) : 0;
 
             var element = node.Element(XName.Get("Format", nameSpace));
             Format = element?.Value ?? "png";

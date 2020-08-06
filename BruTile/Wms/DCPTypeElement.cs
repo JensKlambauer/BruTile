@@ -58,7 +58,8 @@ namespace BruTile.Wms
 
         public override void WriteXml(XmlWriter writer)
         {
-            WriteXmlItem(_name, Namespace, writer, OnlineResource);
+            WriteXmlItem("OnlineResource", Namespace, writer, OnlineResource);
+            //WriteXmlItem(_name, Namespace, writer, OnlineResource);
         }
 
         public override XElement ToXElement(string @namespace)
